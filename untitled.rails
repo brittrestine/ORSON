@@ -1,0 +1,22 @@
+<div class="movie-container">
+	<div class="row movie-row">
+		<% @movielist1.each do |movie| %>
+			<%= image_tag("https://image.tmdb.org/t/p/w300" + movie.poster_path, :alt => movie.title) %>
+		<% end %>
+	</div>
+	<div class="row movie-row">
+		<% @movielist2.each do |movie| %>
+			<%= image_tag("https://image.tmdb.org/t/p/w300" + movie.poster_path, :alt => movie.title) %>
+		<% end %>
+	</div>
+	<div class="row movie-row">
+		<% @movielist3.each do |movie| %>
+			<%= image_tag("https://image.tmdb.org/t/p/w300" + movie.poster_path, :alt => movie.title) %>
+		<% end %>
+	</div>
+	<div class="row movie-row">
+		<% @movielist4.each do |movie| %>
+			<%= image_tag("https://image.tmdb.org/t/p/w300" + movie.poster_path, :alt => movie.title) %>
+		<% end %>
+	</div>
+</div>
