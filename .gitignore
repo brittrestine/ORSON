@@ -17,9 +17,9 @@
 /yarn-error.log
 
 .byebug_history
-<<<<<<< HEAD
+
 *.yml
 *.env
-=======
+
 */.env
->>>>>>> origin
+
