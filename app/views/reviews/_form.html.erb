@@ -1,5 +1,5 @@
-<%= form_for @review do |f| %>
-<!-- [@movie, @movie.review.build] -->
+<%= form_for @movie  do |f| %>
+<!-- ([@movie, @movie.reviews.build]) -->
 
   <% if @review.errors.any? %>
     <div id="error_explanation">
