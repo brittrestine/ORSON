@@ -1,0 +1,14 @@
+<div class="container">	
+	<h1 class="movie-page-header">Trending Movies</h1>
+</div>
+<div class="movie-container">
+	<div class="row movie-row">
+		<% @movielist1.each do |movie| %>
+			<%= link_to image_tag("https://image.tmdb.org/t/p/w300" + movie.poster_path, :alt => movie.title), "/movies/" + movie.id.to_s %>
+		<% end %>
+	</div>
+</div>
+
+
+
+ <!-- action: movie_path(movie.id), controller: movie -->
