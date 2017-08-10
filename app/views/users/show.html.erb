@@ -25,7 +25,12 @@
         <% current_user.reviews.each do |review|%>
           <% @movie = Tmdb::Movie.detail(review.movie)  %>
             <%= link_to image_tag("https://image.tmdb.org/t/p/w185" + @movie.poster_path, :alt => @movie.title), "/movies/" + @movie.id.to_s %>
-            <p>your rating:  <%= review.rating %></p>
+           
+            <div>
+              your rating:  <%= review.rating %>
+              <%= link_to 'edit', edit_review_path(review.id) %>  
+              <%= link_to 'delete', @review, :method => :destroy, :confirm => "Are you sure?"%>
+            </div><br>
         <% end %>
       </ul>
       </div>
