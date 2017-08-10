@@ -17,14 +17,17 @@
         <p><b> bio:</b> <%= current_user.bio %> </p>
          
           <li><%= link_to('Edit Account', edit_user_registration_path) %></li>
-        
-        
+          
       </td>
     <td>
       <div class=user-reviews>
-        <p> if reviews, look for all reviews for current_user.id, iterate over reviews.</p>
-    </div>
-      </td> 
+        <p><% current_user.reviews.each do |review|%> </p>
+          <% @movie = Tmdb::Movie.detail(review.movie)  %>
+          <b><%= @movie.title %> </b>
+          <p><%= review.body %></p>
+          <% end %>
+      </div>
+    </td> 
     </tr>
   </table>
 </div>
