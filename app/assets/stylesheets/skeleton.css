@@ -1,23 +1,31 @@
 body {
-  background-color: lightgrey;
+  background-image: url("wild-sea.png");
+  background-repeat: repeat;
 }
 
-nav {
+.nav-bar {
   border: 2px solid #1EAEDB;
-/*  position: fixed;
+  background-color: black;
+  height: 50px;
+  /*position: fixed;*/
   width: 100%;
-  margin-bottom: 100px;*/
+  margin-bottom: 70px;
 }
 
-nav .logo {
+.nav-bar .logo {
   float: left;
   padding-left: 10px;
 }
 
-nav .user-link {
+.nav-bar .user-link {
   float: right;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.content {
+  width: 100%;
+  /*position: relative;*/
 }
 
 .movie-page-header {
@@ -34,6 +42,7 @@ nav .user-link {
 
 .movie-row {
   border: 2px solid black;
+  margin-bottom: 90px;
 }
 
 .movie-row img {
@@ -41,6 +50,19 @@ nav .user-link {
   justify-content: center;
   margin: 10px;
   border: 2px solid red;
+}
+
+.movie-button {
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #1EAEDB;
+  color: white;
+}
+
+.movie-button:hover {
+  background-color: white;
+  color: #1EAEDB;
 }
 
 .movie-page-wrapper {
@@ -79,7 +101,6 @@ nav .user-link {
   margin-left: 50%;
   background-color: darkgrey;
 }
-
 
 /*
 * Skeleton V2.0.4
