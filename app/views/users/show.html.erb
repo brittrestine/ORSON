@@ -17,15 +17,17 @@
         <p><b> bio:</b> <%= current_user.bio %> </p>
          
           <li><%= link_to('Edit Account', edit_user_registration_path) %></li>
-          
+
       </td>
     <td>
       <div class=user-reviews>
-        <p><% current_user.reviews.each do |review|%> </p>
+      <ul>
+        <% current_user.reviews.each do |review|%>
           <% @movie = Tmdb::Movie.detail(review.movie)  %>
-          <b><%= @movie.title %> </b>
-          <p><%= review.body %></p>
-          <% end %>
+            <%= link_to image_tag("https://image.tmdb.org/t/p/w185" + @movie.poster_path, :alt => @movie.title), "/movies/" + @movie.id.to_s %>
+            <p>your rating:  <%= review.rating %></p>
+        <% end %>
+      </ul>
       </div>
     </td> 
     </tr>
