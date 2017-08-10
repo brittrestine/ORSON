@@ -1,14 +1,27 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-
 
 <div class="container">
-  <div class=user-greeting>
-    <h3>Hello!  <%= current_user.username %>'s' profile page</h3>
-      <p> user name: <%= current_user.username %> </p>
-      <p> email: <%= current_user.email %>    </p>
-      <p> location: <%= current_user.location %> </p>
-      <p> bio: <%= current_user.bio %> </p>
-  </div>
-
+  
+  <table>
+    <tr>
+      <th colspan="2"><h1>Hello <%= current_user.username %>     here's your Profile: </h1> </th>
+    </tr>
+    <tr>
+      <td><h2><%= current_user.username %>'s info</h2></td>
+      <td><h2>Reviews</h2</td>
+    </tr>
+    <tr>
+      <td>
+        <p> user name: <%= current_user.username %> </p>
+        <p> email: <%= current_user.email %>    </p>
+        <p> location: <%= current_user.location %> </p>
+        <p> bio: <%= current_user.bio %> </p>
+        <li><%= link_to('Edit Account', edit_user_registration_path) %></li>
+      </td>
+    <td>
+      <div class=user-reviews>
+        <p> if reviews, look for all reviews for current_user.id, iterate over reviews.</p>
+    </div>
+      </td> 
+    </tr>
+  </table>
 </div>
