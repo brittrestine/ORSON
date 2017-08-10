@@ -1,0 +1,30 @@
+
+<div class="container">
+  
+  <table>
+    <tr>
+      <th colspan="2"><h1>Hello <%= current_user.username %>     here's your Profile: </h1> </th>
+    </tr>
+    <tr>
+      <td><h2><%= current_user.username %>'s info</h2></td>
+      <td><h2>Reviews</h2</td>
+    </tr>
+    <tr>
+      <td>
+        <p> <b>user name:</b> <%= current_user.username %> </p>
+        <p><b> email:</b> <%= current_user.email %>    </p>
+        <p><b>location:</b> <%= current_user.location %> </p>
+        <p><b> bio:</b> <%= current_user.bio %> </p>
+         
+          <li><%= link_to('Edit Account', edit_user_registration_path) %></li>
+        
+        
+      </td>
+    <td>
+      <div class=user-reviews>
+        <p> if reviews, look for all reviews for current_user.id, iterate over reviews.</p>
+    </div>
+      </td> 
+    </tr>
+  </table>
+</div>
