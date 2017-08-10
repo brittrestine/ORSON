@@ -4,12 +4,23 @@ body {
 }
 
 .nav-bar {
-  border: 2px solid #1EAEDB;
-  background-color: black;
+  /*border: 5px solid white;*/
+  /*background-color: #ffaa00;*/
   height: 50px;
   /*position: fixed;*/
   width: 100%;
   margin-bottom: 70px;
+  color: white;
+}
+
+.nav-bar a {
+  color: white;
+}
+
+.nav-bar img {
+  width: auto;
+  height: 80px;
+  top: 0px;
 }
 
 .nav-bar .logo {
@@ -54,15 +65,20 @@ body {
 
 .movie-button {
   text-decoration: none;
+  text-transform: uppercase;
   border-radius: 20px;
   padding: 20px;
-  background-color: #1EAEDB;
+  background-color: #77aa66;
   color: white;
+  letter-spacing: 1em;
 }
 
 .movie-button:hover {
   background-color: white;
-  color: #1EAEDB;
+  border-color: #77aa66;
+  color: #77aa66;
+  letter-spacing: 1em;
+  text-transform: lowercase;
 }
 
 .movie-page-wrapper {
@@ -262,7 +278,7 @@ p {
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
-  color: #1EAEDB; }
+  color: ##77aa66; }
 a:hover {
   color: #0FA0CE; }
 
@@ -341,7 +357,7 @@ select {
   height: 38px;
   padding: 6px 10px; /* The 6px vertically centers text on FF, ignored by Webkit */
   background-color: #fff;
-  border: 1px solid #D1D1D1;
+  border: 1px solid ##77aa66;
   border-radius: 4px;
   box-shadow: none;
   box-sizing: border-box; }
@@ -370,7 +386,7 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 textarea:focus,
 select:focus {
-  border: 1px solid #33C3F0;
+  border: 1px solid ##77aa66;
   outline: 0; }
 label,
 legend {
