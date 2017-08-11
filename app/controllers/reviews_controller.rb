@@ -13,9 +13,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @movie = Tmdb::Movie.detail(params[:movie])
     @review.movie = @movie.id
-    # @review.user_id = current_user.id
-    @review.user_id = 1
-    @review.save(review_params)
+    @review.user = current_user
+    @review.save
 
      if @review.save
       redirect_to movie_path(@movie.id)
