@@ -1,35 +1,25 @@
 <div class="container">
-<% @reviews.each do |review| %>
-  <p>
-    <strong>Title:</strong>
-    <%= review.rating %>
-  </p>
 
+  <% @reviews.each do |review| %>
+  <h2>Reviews</h2>
+  <strong>Rating:</strong>
+  <%= review.rating %>
   <p>
     <strong>Review:</strong>
-    <%= review.body %>
+    <%= review.body %> <br> by <b> <%= review.user.username %> </b>
+  </p>
 
 
 
-
-<h2>Comments</h2>
-<% review.comments.each do |comment| %>
-<p>
-  <strong>Comment:</strong>
+  <% review.comments.each do |comment| %>
+  <strong>Comment:</strong> <br>
   <%= comment.body %>
-</p>
+  <%= link_to 'delete', review_comment_path(review.id, comment.id),
+  :method => :delete, :confirm => "Are you sure?"%>
+  <br>
 
-<p>
- <!-- link_to 'Destroy Comment', movie_review_comment_path(comment.id), -->
-               <!-- method: :delete, -->
-               <!-- data: { confirm: 'Are you sure?' }  -->
-</p>
------------------------------------------------------------------
-<% end %>
-    <!-- all comments -->
-     <!-- render 'comments/comments'  -->
 
-    <!-- add a comment -->
-    <!-- render 'comments/form'  -->
-    <% end %>
-  </div>
+  <% end %>
+   -----------------------------------------------------------------
+  <% end %>
+</div>

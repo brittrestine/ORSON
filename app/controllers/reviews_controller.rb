@@ -3,23 +3,23 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
 
   end
-
+##### create review 'get' method ######
   def new
     @review = Review.new
-    @movie = Tmdb::Movie.detail(params[:movie_id])
+    @movie = Tmdb::Movie.detail(params[:format])
   end
-
+##### 'post' method for form ########
   def create
     @review = Review.new(review_params)
-    # @review.user_id = rand(1..1000)
-    @movie = Tmdb::Movie.detail(params[:id])
-    @review.user_id = current_user.id
-    @review = @movie.review.create(review_params)
+    @movie = Tmdb::Movie.detail(params[:movie])
+    @review.movie = @movie.id
+    @review.user = current_user
+    @review.save
 
      if @review.save
-      redirect_to '/movies/show'
+      redirect_to movie_path(@movie.id)
     else
-      render 'movies/show'
+      render movie_path(@movie.id)
     end
   end
 
@@ -55,6 +55,6 @@ class ReviewsController < ApplicationController
 private
 
   def review_params
-    params.require(:review).permit(:body, :rating)
+    params.require(:review).permit(:body, :rating, :movie)
   end
 end
