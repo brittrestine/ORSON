@@ -1,9 +1,16 @@
 class MoviesController < ApplicationController
   def index
-  	@movie_now_playing1 = Tmdb::Movie.now_playing.results[0..4]
-  	@movie_now_playing2 = Tmdb::Movie.now_playing.results[5..9]
-  	@movie_now_playing3 = Tmdb::Movie.now_playing.results[10..14]
-  	@movie_now_playing4 = Tmdb::Movie.now_playing.results[15..19]
+    if params[:page]
+      @movies = Tmdb::Movie.now_playing({ page: params[:page] }).results
+      response = { 
+        html: render_to_string(partial: "movies/movies", locals: { movies: @movies }),
+        page: params[:page].to_i + 1 
+      }.to_json
+      
+      render json: response
+  	else
+      @movies = Tmdb::Movie.now_playing.results
+    end
   end
 
   def show

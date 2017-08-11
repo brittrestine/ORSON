@@ -1,11 +1,8 @@
 <div class="container">
-
-  
-    
   <% @reviews.each do |review| %>
     <h2>Reviews</h2>
     <strong>Rating:</strong>
-    <%= review.rating %> 
+      <h4><%= star_rater(review.rating) %></h4>
     <p>
       <strong>Review:</strong>
       <%= review.body %> <br> by <b> <%= review.user.username %> </b>

@@ -11,5 +11,25 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
+//= require jquery
 //= require_tree .
+
+
+$(document).ready(function(){
+	$("#load-more-movies").on('click', function(e){
+		e.preventDefault();
+		console.log('fire')
+		var button = $(this);
+
+		$.ajax({
+			url: '/movies',
+			data: { page: button.data('page') },
+			method: "GET"
+		})
+		.done(function(resp){
+			console.log(resp)
+			$(".movie-container").append(resp.html);
+			button.data('page', resp.page);
+		})
+	});
+});
