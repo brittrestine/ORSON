@@ -1,5 +1,6 @@
 <div class="container">
   <% @reviews.each do |review| %>
+
     <h2>Reviews</h2>
     <strong>Rating:</strong>
       <h4><%= star_rater(review.rating) %></h4>
@@ -7,10 +8,11 @@
       <strong>Review:</strong>
       <%= review.body %> <br> by <b> <%= review.user.username %> </b>
     </p>
-  
+
           <% review.comments.each do |comment| %>
             <strong>Comment:</strong><br>
               <%= comment.body %><br>
+
               <%= link_to 'delete', review_comment_path(review.id, comment.id),
   :method => :delete, :confirm => "Are you sure?"%>
   <br>

@@ -19,7 +19,8 @@ class ReviewsController < ApplicationController
      if @review.save
       redirect_to movie_path(@movie.id)
     else
-      render movie_path(@movie.id)
+      flash[:notice] = "You may only review this movie once!"
+      render new_review_path
     end
   end
 
@@ -34,9 +35,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
 
     if @review.update(review_params)
-      redirect_to @review
-    else
-      render 'edit'
+      redirect_to user_path(current_user)
     end
   end
 
