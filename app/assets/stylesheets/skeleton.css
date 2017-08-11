@@ -3,13 +3,19 @@ body {
   background-repeat: repeat;
 }
 
+/*#blur {
+  -webkit-filter: blur(10px);
+  filter: url('/media/blur.svg#blur');
+  filter: blur(10px);
+}*/
+
 .nav-bar {
   /*border: 5px solid white;*/
   /*background-color: #ffaa00;*/
   height: 50px;
   /*position: fixed;*/
   width: 100%;
-  margin-bottom: 70px;
+  margin-bottom: 105px;
   color: white;
 }
 
@@ -32,6 +38,16 @@ body {
   float: right;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.main {
+  margin-bottom: 50px;
+}
+
+.footer {
+  position: relative;
+  min-height: 100%;
+  padding-top: 90px;
 }
 
 .content {
@@ -71,11 +87,12 @@ body {
 .movie-button {
   text-decoration: none;
   text-transform: uppercase;
+  text-align: center;
   border-radius: 20px;
-  padding: 20px;
   background-color: #77aa66;
   color: white;
   letter-spacing: 1em;
+  margin: 0 auto;
 }
 
 .movie-button:hover {
@@ -148,7 +165,6 @@ body {
   letter-spacing: 1em;
   text-transform: lowercase;
 }
-
 /*
 * Skeleton V2.0.4
 * Copyright 2014, Dave Gamache
