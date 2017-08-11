@@ -6,12 +6,10 @@
   </p>
 
   <p>
-    <strong>Text:</strong>
+    <strong>Review:</strong>
     <%= review.body %>
-  </p>
-  <p><%= link_to 'Destroy', movie_review_path(@movie.id),
-    method: :delete,
-    data: { confirm: 'Are you sure?' } %></p>
+
+
 
 
 <h2>Comments</h2>
@@ -22,10 +20,11 @@
 </p>
 
 <p>
- <!--  link_to 'Destroy Comment', [@comment.review, @comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' }  -->
+ <!-- link_to 'Destroy Comment', movie_review_comment_path(comment.id), -->
+               <!-- method: :delete, -->
+               <!-- data: { confirm: 'Are you sure?' }  -->
 </p>
+-----------------------------------------------------------------
 <% end %>
     <!-- all comments -->
      <!-- render 'comments/comments'  -->
