@@ -2,7 +2,6 @@ class CommentsController < ApplicationController
 
   def create
     @review = Review.find(params[:review_id])
-    # @review = Review.find_by(id: 6)
     @comment = @review.comments.create(comment_params)
     # redirect_to article_path(@article)
       redirect_to '/review/new'
