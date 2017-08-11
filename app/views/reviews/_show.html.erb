@@ -12,6 +12,7 @@
           <% review.comments.each do |comment| %>
             <strong>Comment:</strong><br>
               <%= comment.body %><br>
+
               <%= link_to 'delete', review_comment_path(review.id, comment.id),
   :method => :delete, :confirm => "Are you sure?"%>
   <br>
