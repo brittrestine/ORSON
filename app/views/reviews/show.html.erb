@@ -1,14 +1,17 @@
 <div class="container">
-<p>
-  <strong>Title:</strong>
-  <%= @review.rating %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @review.body %>
-</p>
-<p><%= link_to 'Destroy', reviews_path(@review.id),
+  <div>
+    <% @movie = Tmdb::Movie.detail(@review.movie)  %>
+    <strong>Movie Title:</strong> <%=@movie.title %><br>
+    <strong>Rating:</strong>
+    <%= @review.rating %> 
+    <p>
+      <strong>Review:</strong>
+      <%= @review.body %> by <b> <%= @review.user.username %> </b>
+    </p>
+  </div>
+ 
+ <%#needs if logged_in and if user id is the reviewer%>
+<p><%= link_to 'if user reviewed this allow Destroy', reviews_path(@review.id),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></p>
 
