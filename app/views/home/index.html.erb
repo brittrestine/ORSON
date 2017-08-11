@@ -7,7 +7,7 @@
 			<%= link_to image_tag("https://image.tmdb.org/t/p/w300" + movie.poster_path, :alt => movie.title), "/movies/" + movie.id.to_s %>
 		<% end %>
 	</div>
-	<h3><%= link_to "show me the movies", movies_path, class: "movie-button" %></h3>
+	<h4><%= link_to "show me the movies", movies_path, class: "movie-button" %></h4>
 </div>
 
 

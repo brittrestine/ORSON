@@ -1,8 +1,7 @@
 <div class="container">
 <% @reviews.each do |review| %>
   <p>
-    <strong>Title:</strong>
-    <%= review.rating %>
+    <h4><%= star_rater(review.rating) %></h4>
   </p>
 
   <p>

@@ -61,6 +61,11 @@ body {
   justify-content: center;
   margin: 10px;
   border: 2px solid red;
+  width: 300px;
+  height: 450px;
+  color: white;
+  font-size: 3.6rem; 
+  line-height: 1.25;
 }
 
 .movie-button {
@@ -89,7 +94,7 @@ body {
 .movie-info {
   position: fixed;
   margin-right: 50%;
-  background-color: darkgrey;
+  color: white;
 }
 
 .movie-info h1 {
@@ -97,9 +102,15 @@ body {
   text-transform: uppercase;
 }
 
-.movie-info img {
+.movie-poster {
   padding-left: 10px;
   padding-bottom: 10px;
+  width: 300px;
+  height: auto;
+  color: white;
+  font-size: 5.6rem; 
+  line-height: 1.25;
+  text-align: center;
 }
 
 .movie-description {
@@ -115,7 +126,27 @@ body {
 .movie-review {
   position: relative;
   margin-left: 50%;
-  background-color: darkgrey;
+  color: white;
+}
+
+.movie-review a {
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  background-color: #77aa66;
+  color: white;
+  letter-spacing: 1em;
+  font-size: .7em;
+}
+
+.movie-review a:hover {
+  background-color: white;
+  border-color: #77aa66;
+  color: #77aa66;
+  letter-spacing: 1em;
+  text-transform: lowercase;
 }
 
 /*

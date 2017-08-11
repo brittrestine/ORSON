@@ -1,23 +1,7 @@
 <div class="movie-container">
 	<h2>Now Playing</h2>
-	<div class="row movie-row">
-		<% @movie_now_playing1.each do |movie| %>
-			<%= link_to image_tag("https://image.tmdb.org/t/p/w300" + movie.poster_path, :alt => movie.title), "/movies/" + movie.id.to_s %>
-		<% end %>
-	</div>
-	<div class="row movie-row">
-		<% @movie_now_playing2.each do |movie| %>
-			<%= link_to image_tag("https://image.tmdb.org/t/p/w300" + movie.poster_path, :alt => movie.title), "/movies/" + movie.id.to_s %>
-		<% end %>
-	</div>
-	<div class="row movie-row">
-		<% @movie_now_playing3.each do |movie| %>
-			<%= link_to image_tag("https://image.tmdb.org/t/p/w300" + movie.poster_path, :alt => movie.title), "/movies/" + movie.id.to_s %>
-		<% end %>
-	</div>
-	<div class="row movie-row">
-		<% @movie_now_playing4.each do |movie| %>
-			<%= link_to image_tag("https://image.tmdb.org/t/p/w300" + movie.poster_path, :alt => movie.title), "/movies/" + movie.id.to_s %>
-		<% end %>
-	</div>
+	<%= render partial: "movies/movies", locals: { movies: @movies } %>
+</div>
+<div class="container">
+	<button class="movie-button" id="load-more-movies" data-page="2">Load more</button>
 </div>
