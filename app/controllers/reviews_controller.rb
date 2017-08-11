@@ -19,7 +19,8 @@ class ReviewsController < ApplicationController
      if @review.save
       redirect_to movie_path(@movie.id)
     else
-      render movie_path(@movie.id)
+      flash[:notice] = "You may only review this movie once!"
+      render new_review_path
     end
   end
 
