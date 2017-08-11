@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
 
  def edit
     # @review = Review.find(params[:id])
-    @review = Review.find_by(id:6)
+     @review = Review.find(params[:id])
   end
 
   def update
