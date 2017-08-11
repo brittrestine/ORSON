@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    @movie = Tmdb::Movie.detail(params[:id])
+    @movie = Tmdb::Movie.detail(params[:movie_id])
   end
 
   def create
