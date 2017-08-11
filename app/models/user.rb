@@ -3,6 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  # attr_accessor :username, :location, :trusted?, :bio, :email, :password, :password_confirmation, :phone_number
-
+  has_many :comments, dependent: :destroy 
+  has_many :reviews, dependent: :destroy # if you delete an user, their associated comments will also be deleted.      
 end
