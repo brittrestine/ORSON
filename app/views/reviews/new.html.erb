@@ -1,5 +1,7 @@
+<div class="container">
+  <h1>Create a Review</h1>
 <%= form_for @review do |f| %>
-<!-- ([@movie, @movie.reviews.build]) -->
+<%= hidden_field_tag "movie", params[:format] %>
 
   <% if @review.errors.any? %>
     <div id="error_explanation">
@@ -29,3 +31,6 @@
   </p>
 
 <% end %>
+   <!-- render 'reviews/form'  -->
+
+</div>

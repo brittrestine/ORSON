@@ -4,4 +4,8 @@ class Review < ApplicationRecord
   validates :body, presence: true,
                     length: { minimum: 5 }
   validates_inclusion_of :rating, in: 1..5
+
+  belongs_to :user
+#need uniqueness true on the user_id, so that a user can not make more than one review 
+
 end

@@ -19,9 +19,9 @@
 	</div>
 
 	<div class="one-half column u-pull-left movie-review" style="position: relative; margin-left: 50%">
+		<div class="container">
+			<h1><%= link_to 'New Review', new_review_path(@movie.id) %></h1>
+		</div>
 		<%= render 'reviews/show' %>
-
-	<!-- render 'reviews/new'  -->
-
 	</div>
-	</div>
+</div>

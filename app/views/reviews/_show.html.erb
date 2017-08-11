@@ -1,35 +1,22 @@
 <div class="container">
-<% @reviews.each do |review| %>
-  <p>
-    <h4><%= star_rater(review.rating) %></h4>
-  </p>
+  <% @reviews.each do |review| %>
+    <h2>Reviews</h2>
+    <strong>Rating:</strong>
+      <h4><%= star_rater(review.rating) %></h4>
+    <p>
+      <strong>Review:</strong>
+      <%= review.body %> <br> by <b> <%= review.user.username %> </b>
+    </p>
+  
+          <% review.comments.each do |comment| %>
+            <strong>Comment:</strong><br>
+              <%= comment.body %><br>
+              <%= link_to 'delete', review_comment_path(review.id, comment.id),
+  :method => :delete, :confirm => "Are you sure?"%>
+  <br>
+          <% end %><br>
 
-  <p>
-    <strong>Text:</strong>
-    <%= review.body %>
-  </p>
-  <p><%= link_to 'Destroy', movie_review_path(@movie.id),
-    method: :delete,
-    data: { confirm: 'Are you sure?' } %></p>
-
-
-<h2>Comments</h2>
-<% review.comments.each do |comment| %>
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
-
-<p>
- <!--  link_to 'Destroy Comment', [@comment.review, @comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' }  -->
-</p>
-<% end %>
-    <!-- all comments -->
-     <!-- render 'comments/comments'  -->
-
-    <!-- add a comment -->
-    <!-- render 'comments/form'  -->
-    <% end %>
-  </div>
+  <%= link_to 'new comment', new_review_comment_path(review.id) %> <br>
+    _______________________________________________________________
+  <% end %>
+</div>
