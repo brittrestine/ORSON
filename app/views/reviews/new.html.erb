@@ -3,22 +3,14 @@
 <%= form_for @review do |f| %>
 <%= hidden_field_tag "movie", params[:format] %>
 
-  <% if @review.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:
-      </h2>
-      <ul>
-        <% @review.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+   <div class="content">
+    <% if flash[:notice] %>
+    <p><div class="notice"><strong><%= flash[:notice] %></strong></div></p>
   <% end %>
 
   <p>
     <%= f.label :rating %><br>
-    <%= f.text_field :rating %>
+    <%= f.select :rating, (0..5) %>
   </p>
 
   <p>
