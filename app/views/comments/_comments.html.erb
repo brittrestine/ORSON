@@ -1,12 +1,13 @@
 <h2>Comments</h2>
-
+<% @review.comments.each do |comment| %>
 <p>
   <strong>Comment:</strong>
-  <%= @comment.body %>
+  <%= comment.body %>
 </p>
 
 <p>
-  <%= link_to 'Destroy Comment', [@comment.review, @comment],
+ <!--  link_to 'Destroy Comment', [@comment.review, @comment],
                method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+               data: { confirm: 'Are you sure?' }  -->
 </p>
+<% end %>

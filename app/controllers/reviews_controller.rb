@@ -4,25 +4,26 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    @movie = Tmdb::Movie.detail(params[:id])
   end
 
   def create
     @review = Review.new(review_params)
-    @review.user_id = rand(1..1000)
-
-    # @review.user_id = current_user.id
-    # @review = @movie.review.create(review_params)
+    # @review.user_id = rand(1..1000)
+    @movie = Tmdb::Movie.detail(params[:id])
+    @review.user_id = current_user.id
+    @review = @movie.review.create(review_params)
 
      if @review.save
-      redirect_to '/reviews/new'
+      redirect_to '/movies/show'
     else
-      render 'new'
+      render 'movies/show'
     end
   end
 
  def edit
-    # @review = Review.find(params[:id])
-    @review = Review.find_by(id:6)
+    @review = Review.find(params[:id])
+    # @review = Review.find_by(id:6)
   end
 
   def update
@@ -40,6 +41,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    # @review = Review.where(movie: params[:id])
     @review = Review.find(params[:id])
     @review.destroy
 
