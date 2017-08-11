@@ -13,11 +13,12 @@
 
 	<div class="one-half column u-pull-left movie-review" style="position: relative; margin-left: 50%">
 
-	</p>
-	<!-- <p> link_to 'Create Review', [:new, @movie, @review] -->
-	</p>
+	<div class="container">
+	<h1><%= link_to 'New Review', new_review_path(@movie.id) %></h1>
+	</div>
 
 	<%= render 'reviews/show' %>
+
 
 </div>
 </div>
