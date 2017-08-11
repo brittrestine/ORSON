@@ -1,10 +1,18 @@
 class CommentsController < ApplicationController
 
+  def new
+    @comment = Comment.new
+    @review = Review.find(params[:review_id])
+    # @review.comments = Comment.new
+  end
+
   def create
     @review = Review.find(params[:review_id])
-    @comment = @review.comments.create(comment_params)
-    # redirect_to article_path(@article)
-      redirect_to '/review/new'
+    @comment = Comment.new(comment_params)
+    @comment.user = current_user
+    @comment.review = @review
+    @comment.save
+      redirect_to "/movies/" + @review.movie.to_s
   end
 
   def destroy
