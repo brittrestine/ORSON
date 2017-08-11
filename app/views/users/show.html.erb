@@ -1,6 +1,6 @@
 
 <div class="container">
-  
+  <% if current_user %>
   <table>
     <tr>
       <th colspan="2"><h1>Hello <%= current_user.username %>     here's your Profile: </h1> </th>
@@ -15,7 +15,7 @@
         <p><b> email:</b> <%= current_user.email %>    </p>
         <p><b>location:</b> <%= current_user.location %> </p>
         <p><b> bio:</b> <%= current_user.bio %> </p>
-         
+
           <li><%= link_to('Edit Account', edit_user_registration_path) %></li>
 
       </td>
@@ -25,17 +25,18 @@
         <% current_user.reviews.each do |review|%>
           <% @movie = Tmdb::Movie.detail(review.movie)  %>
             <%= link_to image_tag("https://image.tmdb.org/t/p/w185" + @movie.poster_path, :alt => @movie.title), "/movies/" + @movie.id.to_s %>
-           
+
             <div>
               your rating:  <%= review.rating %>
-              <%= link_to 'edit', edit_review_path(review.id) %>  
-              <%= link_to 'delete', review_path(review), 
+              <%= link_to 'edit', edit_review_path(review.id) %>
+              <%= link_to 'delete', review_path(review),
                         :method => :delete, :confirm => "Are you sure?"%>
             </div><br>
         <% end %>
       </ul>
       </div>
-    </td> 
+    </td>
     </tr>
   </table>
+  <% end %>
 </div>
