@@ -15,9 +15,9 @@
       
       <% review.comments.each do |comment| %>
         <strong>Comment:</strong><br>
-          <%= comment.body %>
+          <%= comment.body %><br>
       <% end %><br>
-    <%= link_to 'new coment', new_review_comment_path(review.id) %> <br>
+    <%= link_to 'new comment', new_review_comment_path(review.id) %> <br>
     _______________________________________________________________
     <% end %>
   </div>
