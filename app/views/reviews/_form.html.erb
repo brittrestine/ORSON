@@ -1,4 +1,4 @@
-<%= form_for ([@movie, @movie.reviews]) do |f| %>
+<%= form_for @review do |f| %>
 <!-- ([@movie, @movie.reviews.build]) -->
 
   <% if @review.errors.any? %>
@@ -13,7 +13,7 @@
       </ul>
     </div>
   <% end %>
-x`x
+
   <p>
     <%= f.label :rating %><br>
     <%= f.text_field :rating %>
