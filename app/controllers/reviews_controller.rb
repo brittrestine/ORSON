@@ -43,7 +43,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @review.destroy
 
-    redirect_to reviews_path
+    redirect_to user_path
   end
 
 private
