@@ -9,31 +9,27 @@
   </head>
 
   <body>
-  <div class="row">
+  <div class="row nav-bar">
   	<div class="twelve columns">
   		<nav>
   			<ul style="list-style: none;">
-          <li><%= link_to('Home', root_path) %></li>
+          <li><%= link_to image_tag("orson_white.png", :alt => "ORSON home"), root_path, class: "logo" %></li>
           <% if user_signed_in? %>
-            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-            <li><%= link_to('Profile', user_path(current_user.id)) %></li>
+            <li class="user-link"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+            <li class="user-link"><%= link_to('Profile', user_path(current_user.id)) %></li>
           <% else %>
-            <li><%= link_to('Sign in', new_user_session_path) %></li>
-            <li><%= link_to('Sign up', new_user_registration_path) %></li>
+            <li class="user-link"><%= link_to('Sign in', new_user_session_path) %></li>
+            <li class="user-link"><%= link_to('Sign up', new_user_registration_path) %></li>
           <% end %>
+          <li class="user-link"><%= link_to "Movies", movies_path %></li>
         </ul>
   		</nav>
   	</div>
   </div>
-
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
-<% end %>
-
+  <div class="content">
 
     <%= yield %>
+
+  </div>
   </body>
 </html>
