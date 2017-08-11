@@ -28,8 +28,9 @@
            
             <div>
               your rating:  <%= review.rating %>
-              <%= link_to('edit', edit_review_path(@review.id)) %>  
-              <%= link_to 'delete', @review, :method => :destroy, :confirm => "Are you sure?"%>
+              <%= link_to 'edit', edit_review_path(review.id) %>  
+              <%= link_to 'delete', review_path(review), 
+                        :method => :delete, :confirm => "Are you sure?"%>
             </div><br>
         <% end %>
       </ul>
