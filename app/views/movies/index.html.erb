@@ -1,7 +1,7 @@
 <div class="movie-container">
-	<h2>Now Playing</h2>
+	<h2>Trending Movies</h2>
 	<%= render partial: "movies/movies", locals: { movies: @movies } %>
 </div>
-<div class="container">
-	<h5 class="movie-button" id="load-more-movies" data-page="2">Load more</h5>
+<div class="button-container">
+	<a class="movie-button" id="load-more-movies" data-page="2">Load more</a>
 </div>
