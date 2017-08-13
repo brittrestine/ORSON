@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   #   resources :comments
   # end
 
-  resources :users
+  resources :users, only: [:show, :users]
 
   root 'home#index'
 end

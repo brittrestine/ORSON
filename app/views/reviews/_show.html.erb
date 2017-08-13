@@ -1,25 +1,25 @@
 <div class="container">
   <div class="review-box">
+    <h3>Reviews</h3>
     <% @reviews.each do |review| %>
 
-    <h4><%= star_rater(review.rating) %></h4>
-    <h5><%= review.body %>  </h5>
-    <h6>by <%= review.user.username %></h6>
-  </div>
-  <div class="comment-box">
-    <h6>Comments</h6>
-    <% review.comments.each do |comment| %>
-    <%= comment.body %><br>
-    <% if current_user && comment.user_id == current_user.id %>
-      <%= link_to 'delete', review_comment_path(review.id, comment.id),
-      :method => :delete, :confirm => "Are you sure?"%>
-      <br>
-      <% end  %>
-    <% end %>
-    <br>
+    <h4> <%= star_rater(review.rating) %> </h4>
+    <h5> <%= review.body %>  </h5>
+    <h6>by <%= review.user.username %> </h6>
+    <div class="comment-box">
+      <h5>Comments:</h5>
+      <% review.comments.each do |comment| %>
+        <p><%= comment.body %><br> - <%= comment.user.username %>
+          <% if current_user && comment.user_id == current_user.id %>
+            <%= link_to 'x', review_comment_path(review.id, comment.id), :method => :delete, data: { :confirm => "Are you sure?" } %>
+          <% end  %>
+        <% end %>
+        </p>
 
-    <%= link_to 'comment', new_review_comment_path(review.id), class: "movie-button" %> <br>
-    _______________________________________________________________
-    <% end %>
-  </div>
+      <%= link_to 'comment', new_review_comment_path(review.id), class: "movie-button" %>
+      <br>
+      <br>
+      </div>
+      <% end %>
+    </div>
 </div>
