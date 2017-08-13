@@ -1,7 +1,9 @@
-<% movies.in_groups_of(5, true).each do |group| %>
+<% movies.in_groups_of(4, true).each do |group| %>
   <div class="row movie-row">
   	<% group.each do |movie| %>
-			<%= link_to image_tag("https://image.tmdb.org/t/p/w300/#{movie.poster_path}", :alt => movie.title), "/movies/#{movie.id.to_s}" %>
+  		<% if movie.poster_path != nil %>
+				<%= link_to image_tag("https://image.tmdb.org/t/p/w300/#{movie.poster_path}", :alt => movie.title), "/movies/#{movie.id.to_s}" %>
+			<% end %>
 		<% end %>
   </div>
 <% end %>

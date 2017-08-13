@@ -1,29 +1,26 @@
-<div id="blur">
-	<div class="row movie-page-wrapper">
-		<div class="one-half column u-pull-left movie-info">
-			<h1><%= @movie.title %></h1>
-			<h4>
-				<% if Review.where(movie: @movie.id).exists? %>
-					<%= star_rater(average_rating(@movie.id)) %>
-				<% end %>	
-			</h4>
-			<!-- <h3><img src="/open-iconic/svg/star.svg"></h3> -->
-			<div class="row">
-				<%= image_tag("https://image.tmdb.org/t/p/w300/#{@movie.poster_path}", :alt => "Poster Not Available", class: "one-half column movie-poster") %>
-				<div class="one-half column">
-					<h5 class="movie-description"> <%= @movie.overview %> </h5>
-					<br>
-					<!-- <iframe class="trailer" width="400" height="225" src="https://www.youtube.com/embed/"<%=  %>  frameborder="0" allowfullscreen></iframe> -->
-					<p><%= link_to "back to index", movies_path, class: "movie-button" %></p>
-				</div>
+<div class="row movie-page-wrapper">
+	<div class="one-half column u-pull-left movie-info">
+		<h1><%= @movie.title %></h1>
+		<h4>
+			<% if Review.where(movie: @movie.id).exists? %>
+				ORSON Rating: <%= star_rater(average_rating(@movie.id)) %>
+			<% end %>	
+		</h4>
+		<div class="row">
+			<%= image_tag("https://image.tmdb.org/t/p/w300/#{@movie.poster_path}", :alt => "Poster Not Available", class: "one-half column movie-poster") %>
+			<div class="one-half column">
+				<h5 class="movie-description"> <%= @movie.overview %> </h5>
+				<br>
+				<!-- <iframe class="trailer" width="400" height="225" src="https://www.youtube.com/embed/"<%=  %>  frameborder="0" allowfullscreen></iframe> -->
+				<p><%= link_to 'Write a Review', new_review_path(@movie.id), class: "movie-button"%></p>
+				<p><%= link_to "Back to Index", movies_path, class: "movie-button" %></p>
 			</div>
 		</div>
+	</div>
 
-		<div class="one-half column u-pull-left movie-review" style="position: relative; margin-left: 50%">
-			<div class="container">
-				<h1><%= link_to 'New Review', new_review_path(@movie.id) %></h1>
-			</div>
-			<%= render 'reviews/show' %>
+	<div class="one-half column u-pull-left movie-review" style="position: relative; margin-left: 50%">
+		<div class="container">
 		</div>
+		<%= render 'reviews/show' %>
 	</div>
 </div>
