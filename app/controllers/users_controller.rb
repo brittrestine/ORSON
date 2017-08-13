@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
-  def index
-  end
-
   def show
-    @user = User.find_by(id: params[:user_id])
+    @user = User.find_by(params[:user_id])
+    @reviews = Review.where(user_id: @user.id)
   end
 end

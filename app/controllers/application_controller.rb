@@ -9,12 +9,16 @@ class ApplicationController < ActionController::Base
     def after_sign_in_path_for(resource)
         root_path
     end
-    
+
     protected
 
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :bio, :location, :email, :password) }
         devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:location, :bio, :email, :password, :current_password) }
+    end
+
+    def not_found
+        raise ActionController::RoutingError.new('Not Found')
     end
 
 end

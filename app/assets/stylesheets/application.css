@@ -249,8 +249,28 @@ body {
 .profile-page {
   color: white;
   text-align: center;
+  margin-top: 20px;
 }
 
 .profile-page h1 {
-  font-size: "Fredoka One";
+  font-family: "Fredoka One";
+}
+
+.user-info {
+  float: left;
+  margin-left: -60px;
+  border: 2px solid red;
+  float: left;
+}
+
+.user-photo {
+  height: 300px;
+  width: auto;
+}
+
+.user-review {
+  float: left;
+  border: 2px solid blue;
+  margin-left: 15px;
+  justify-content: center;
 }
