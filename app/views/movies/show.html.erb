@@ -1,10 +1,10 @@
 <div class="row movie-page-wrapper">
-	<div class="one-half column u-pull-left movie-info">
+	<div class="one-half column movie-info">
 		<h1><%= @movie.title %></h1>
 		<h4>
 			<% if Review.where(movie: @movie.id).exists? %>
 				ORSON Rating: <%= star_rater(average_rating(@movie.id)) %>
-			<% end %>	
+			<% end %>
 		</h4>
 		<div class="row">
 			<%= image_tag("https://image.tmdb.org/t/p/w300/#{@movie.poster_path}", :alt => "Poster Not Available", class: "one-half column movie-poster") %>
@@ -18,7 +18,7 @@
 		</div>
 	</div>
 
-	<div class="one-half column u-pull-left movie-review" style="position: relative; margin-left: 50%">
+	<div class="one-half column movie-review" style="position: relative; margin-left: 50%">
 		<div class="container">
 		</div>
 		<%= render 'reviews/show' %>

@@ -1,28 +1,19 @@
+<div class="container profile-page">
+  <% if current_user && current_user.id == @user.id %>
+    <h1>Hello, <%= current_user.username %>!</h1>
+  <% end %>
+  <div class="row">
+  <div class="user-info">
+    <p> <b>user name:</b> <%= current_user.username %> </p>
+    <p><b> email:</b> <%= current_user.email %>    </p>
+    <p><b>location:</b> <%= current_user.location %> </p>
+    <p><b> bio:</b> <%= current_user.bio %> </p>
+    <li><%= link_to('Edit Account', edit_user_registration_path) %></li>
+  </div>
 
-<div class="container">
-  <% if current_user %>
-  <table>
-    <tr>
-      <th colspan="2"><h1>Hello <%= current_user.username %>     here's your Profile: </h1> </th>
-    </tr>
-    <tr>
-      <td><h2><%= current_user.username %>'s info</h2></td>
-      <td><h2>Reviews</h2</td>
-    </tr>
-    <tr>
-      <td>
-        <p> <b>user name:</b> <%= current_user.username %> </p>
-        <p><b> email:</b> <%= current_user.email %>    </p>
-        <p><b>location:</b> <%= current_user.location %> </p>
-        <p><b> bio:</b> <%= current_user.bio %> </p>
-
-          <li><%= link_to('Edit Account', edit_user_registration_path) %></li>
-
-      </td>
-    <td>
-      <div class=user-reviews>
-      <ul>
-        <% current_user.reviews.each do |review|%>
+  <div class=user-reviews>
+  <h2>Reviews</h2>
+  <% @user.reviews.each do |review|%>
           <% @movie = Tmdb::Movie.detail(review.movie)  %>
             <%= link_to image_tag("https://image.tmdb.org/t/p/w185" + @movie.poster_path, :alt => @movie.title), "/movies/" + @movie.id.to_s %>
 
@@ -33,10 +24,5 @@
                         :method => :delete, :confirm => "Are you sure?"%>
             </div><br>
         <% end %>
-      </ul>
       </div>
-    </td>
-    </tr>
-  </table>
-  <% end %>
 </div>
