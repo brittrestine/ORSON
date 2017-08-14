@@ -1,7 +1,7 @@
 <div class="movie-container">
 	<h2>Welcome to Orson</h2>
 	<h5>Find new movies, read reviews, add your rating, and discover a new favorite!</h5>
-	<div class="row review-row">
+	<div class="row movie-row">
 		<% @movielist.each do |movie| %>
 			<% if movie.poster_path != nil %>
 				<%= link_to image_tag("https://image.tmdb.org/t/p/w300" + movie.poster_path, :alt => movie.title), "/movies/" + movie.id.to_s %>
