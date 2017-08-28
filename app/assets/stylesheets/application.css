@@ -259,7 +259,6 @@ body {
 .user-info {
   float: left;
   margin-left: -60px;
-  border: 2px solid red;
   float: left;
 }
 
@@ -270,7 +269,6 @@ body {
 
 .user-review {
   float: left;
-  border: 2px solid blue;
   margin-left: 15px;
   justify-content: center;
 }
