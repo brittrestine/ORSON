@@ -18,7 +18,7 @@
  /*LAYOUT*/
 /*LAYOUT*/
 body {
-  background-image: url("wild-sea.png");
+  background-image: url('<%= asset_path("wild-sea.jpg") %>');
   background-repeat: repeat;
 }
 
@@ -95,7 +95,7 @@ body {
   font-size: 3.6rem;
   line-height: 1.25;
   border: 10px solid white;
-  width: 240px;
+  width: 100px;
   height: auto;
 }
 
